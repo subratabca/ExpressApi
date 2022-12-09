@@ -8,7 +8,6 @@ app.use(bodyParser.json());
     app.post("/",function (req,res) {
         let firstName = req.query.firstName;
         let lastName = req.query.lastName;
-
         res.end("First name is:"+firstName+" and Last name is:"+lastName);
     });
 
@@ -17,7 +16,6 @@ app.use(bodyParser.json());
     app.post("/",function (req,res) {
         let userName = req.header('userName');
         let password = req.header('password');
-
         res.end("User name is:" +userName+" and Password is:" +password);
     });
 
@@ -45,13 +43,10 @@ var storage=multer.diskStorage({
     destination:function(req,file,callback){
         callback(null,'./uploads');
     },
-
     filename:function(req,file,callback){
         //console.log(file);
         callback(null,file.originalname);
     }
-
-
 });
 
 var upload=multer({storage:storage,
